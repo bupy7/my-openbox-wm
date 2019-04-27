@@ -53,7 +53,7 @@ mkdir ~/wallpapers
 wget -O ~/wallpapers/meg-myers-1.jpg ${RESOURCE_URL}/wallpapers/meg-myers-1.jpg
 
 # configuration Xorg
-echo -e "#/usr/bin/env bash\nopenbox-session" > ~/.xinitrc
+wget -O ~/.xinitrc ${RESOURCE_URL}/.xinitrc
 chmod +x ~/.xinitrc
 
 # configuration .bash_profile
