@@ -21,9 +21,8 @@ done
 # configuration sudo
 apt install -y sudo
 
-read -s -p "Add user: " username
+read -s -p "Your not root username: " username
 
-adduser $username
 usermod -aG sudo $username
 
 # swith to new user
