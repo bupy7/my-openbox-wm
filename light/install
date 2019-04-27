@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+# ONLY FOR DEBIAN 9
+# -----------------
+
+# init
+while [ $# -gt 0 ]; do
+    case "${1}" in
+        -h|--help|*)
+            cat <<EOF
+INSTALL TOOL OF OPENBOX WM ON DEBIAN 9
+
+Arguments:
+	-h  Showing this help.
+EOF
+            exit 0
+            ;;
+    esac
+done
+
+# configuration sudo
+apt install -y sudo
+
+read -s -p "Add user: " username
+
+adduser $username
+usermod -aG sudo $username
+
+# swith to new user
+sudo - $username
+cd
