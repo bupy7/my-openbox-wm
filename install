@@ -18,7 +18,7 @@ EOF
     esac
 done
 
-RESOURCE_URL=https://raw.githubusercontent.com/bupy7/my-openbox-wm/master/light
+RESOURCE_URL=https://raw.githubusercontent.com/bupy7/my-openbox-wm/master
 
 # configuration sudo
 apt install -y sudo
@@ -50,7 +50,7 @@ wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-
 	
 # download wallpapers
 mkdir ~/wallpapers
-wget -O ~/wallpapers/meg-myers-1.jpg ${RESOURCE_URL}/wallpapers/meg-myers-1.jpg
+wget -O ~/wallpapers/meg-myers-1.jpg ${RESOURCE_URL}/wallpaper.jpg
 
 # configuration Xorg
 wget -O ~/.xinitrc ${RESOURCE_URL}/.xinitrc
