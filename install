@@ -18,6 +18,11 @@ EOF
     esac
 done
 
+<<<<<<< HEAD
+=======
+RESOURCE_URL=https://raw.githubusercontent.com/bupy7/my-openbox-wm/master
+
+>>>>>>> 5ee1f29a187a0602e432d25fb070836bca776a8d
 # configuration sudo
 echo -e ">>> Configuration SUDO\n"
 apt install -y sudo
@@ -65,6 +70,13 @@ fi
 # installing icons
 echo -e ">>> Installing icons\n"
 wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/20190331/install.sh | sh
+<<<<<<< HEAD
+=======
+	
+# download wallpapers
+mkdir ~/wallpapers
+wget -O ~/wallpapers/meg-myers-1.jpg ${RESOURCE_URL}/wallpaper.jpg
+>>>>>>> 5ee1f29a187a0602e432d25fb070836bca776a8d
 
 # installing themes
 echo -e ">>> Installing themes\n"
