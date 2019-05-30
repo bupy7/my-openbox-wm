@@ -1,4 +1,6 @@
 #/usr/bin/env bash
 
 tint2 &
-feh --bg-fill ~/wallpapers/meg-myers-1.jpg &
+feh --bg-fill ~/Wallpapers/meg_myers_1.jpg &
+pnmixer &
+

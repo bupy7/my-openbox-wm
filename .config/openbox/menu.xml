@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu xmlns="http://openbox.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://openbox.org/                 file:///usr/share/openbox/menu.xsd">
+	<menu id="root-menu" label="Openbox 3">
+		<item label="Audacious">
+			<action name="Execute">
+				<execute>audacious</execute>
+			</action>
+		</item>
+		<item label="Geany">
+			<action name="Execute">
+				<execute>geany</execute>
+			</action>
+		</item>
+		<item label="File Manager">
+			<action name="Execute">
+				<execute>pcmanfm</execute>
+			</action>
+		</item>
+		<item label="Telegram">
+			<action name="Execute">
+				<execute>telegram</execute>
+			</action>
+		</item>
+		<item label="Terminal emulator">
+			<action name="Execute">
+				<execute>x-terminal-emulator</execute>
+			</action>
+		</item>
+		<item label="VLC">
+			<action name="Execute">
+				<execute>vlc</execute>
+			</action>
+		</item>
+		<item label="Web browser">
+			<action name="Execute">
+				<execute>x-www-browser</execute>
+			</action>
+		</item>
+		<!-- This requires the presence of the 'menu' package to work -->
+		<separator/>
+		<menu id="client-list-menu"/>
+		<menu id="root-menu-62642" label="Configuration">
+			<item label="Appearance">
+				<action name="Execute">
+					<execute>lxappearance</execute>
+				</action>
+			</item>
+			<item label="Display">
+				<action name="Execute">
+					<execute>lxrandr</execute>
+				</action>
+			</item>
+			<item label="Input">
+				<action name="Execute">
+					<execute>lxinput</execute>
+				</action>
+			</item>
+			<item label="ObConf">
+				<action name="Execute">
+					<execute>obconf</execute>
+				</action>
+			</item>
+			<item label="ObMenu">
+				<action name="Execute">
+					<execute>obmenu</execute>
+				</action>
+			</item>
+			<item label="Tint2Conf">
+				<action name="Execute">
+					<execute>tint2conf</execute>
+				</action>
+			</item>
+		</menu>
+		<separator/>
+		<item label="Exit">
+			<action name="Exit"/>
+		</item>
+	</menu>
+</openbox_menu>

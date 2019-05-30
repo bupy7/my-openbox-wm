@@ -18,59 +18,71 @@ EOF
     esac
 done
 
-RESOURCE_URL=https://raw.githubusercontent.com/bupy7/my-openbox-wm/master/light
-
 # configuration sudo
+echo -e ">>> Configuration SUDO\n"
 apt install -y sudo
-
-read -s -p "Your not root username: " username
-
+read -s -p "Your new primary username: " username
 usermod -aG sudo $username
-
-# swith to new user
+# swithing to new user
 sudo - $username
 cd
 
 # configuration locales
+echo -e ">>> Configuration locales\n"
 sudo dpkg-reconfigure locale
 
-# install packages
-sudo apt install -y xorg \
-	openbox \
-	tint2 \
-	pcmanfm \
-	xterm \
-	chromium \
-	lxappearance \
-	git \
-	gsimplecal
+# configuration keyboard
+echo -e ">>> Configuration keyboard\n"
+sudo cp ./etc/default/keyboard /etc/default/keyboard
+loadkeys us
+
+# configuration ethernet
+echo -e ">>> Configuration Ethernet\n"
+read -s -p "Connect to WiFi? (y/n) " connectToWifi
+if connectToWifi;
+	read -s -p "SSID: " wifiSsid
+	read -s -p "Password: " wifiPassword
+
+	sudo cp /etc/interface/interfaces /etc/interface/interfaces.bak
+	sudo cat ./etc/network/interfaces | sed "s/@SSID@/${wifiSsid}/" | sed "s/@PSK@/${wifiPassword}/" > /etc/interface/
+fi
+
+# installing packages
+echo -e ">>> Installing packages\n"
+sudo apt install -y xorg openbox tint2 pcmanfm xterm chromium lxappearance git gsimplecal audacious \
+	feh geany gparted htop network-manager network-manager-gnome pavucontrol pnmixer obconf \
+	pulseaudio resolvconf screenfetch scrot vim vlc xfce4-power-manager zip lxrandr lxinput obmenu
+
+read -s -p "Do you have Realtek Ethernet chipset? (y/n) " isRealtekChipset
+if isRealtekChipset;
+	sudo apt install -y firmware-realtek
+fi
+read -s -p "Do you have Atheros Ethernet chipset? (y/n) " isAtherosChipset
+if isRealtekChipset;
+	sudo apt install -y firmware-atheros
+fi
 	
-# install icons
+# installing icons
+echo -e ">>> Installing icons\n"
 wget -qO- https://raw.githubusercontent.com/PapirusDevelopmentTeam/papirus-icon-theme/20190331/install.sh | sh
-	
-# download wallpapers
-mkdir ~/wallpapers
-wget -O ~/wallpapers/meg-myers-1.jpg ${RESOURCE_URL}/wallpapers/meg-myers-1.jpg
 
-# configuration Xorg
-wget -O ~/.xinitrc ${RESOURCE_URL}/.xinitrc
-chmod +x ~/.xinitrc
+# installing themes
+echo -e ">>> Installing themes\n"
+cp -R ./.themes ~/
 
-# configuration .bash_profile
-wget -O ~/.bash_profile ${RESOURCE_URL}/.bash_profile
-chmod +x ~/.bash_profile
+# copying configurations
+echo -e ">>> Copying local configurations\n"
+cp -R ./.config ~/
+cp ./.xinitrc ~/
+cp ./.vimrc ~/
+cat ./.bash_profile | sed "s/@username@/${username}/" > ~/.bash_profile
 
-# configuration openbox
-if [[ ! -d ~/.config/openbox ]]; then
-	mkdir -p ~/.config/openbox
-fi
-wget -O ~/.config/openbox/autostart.sh ${RESOURCE_URL}/.config/openbox/autostart.sh
-chmod +x ~/.config/openbox/autostart.sh
-wget -O ~/.config/openbox/menu.xml ${RESOURCE_URL}/.config/openbox/menu.xml
-wget -O ~/.config/openbox/rc.xml ${RESOURCE_URL}/.config/openbox/rc.xml
+# copying wallpapers
+echo -e ">>> Copying wallpapers\n"
+cp -R ./Wallpapers ~/
 
-# configuration tint2
-if [[ ! -d ~/.config/tint2 ]]; then
-	mkdir -p ~/.config/tint2
-fi
-wget -O ~/.config/tint2/tint2rc ${RESOURCE_URL}/.config/tint2/tint2rc
+# clearing
+sudo mv /etc/interface/interfaces.bak /etc/interface/interfaces
+
+# ending
+echo -e "DONE! YOU MUST RESTART YOUR COMPUTER NOW.\n"
