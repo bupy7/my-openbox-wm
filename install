@@ -27,7 +27,6 @@ if [ "${addNewUser}" == 'y' ];
 	adduser $username
 fi
 usermod -aG sudo $username
-usermod -aG plugdev $username
 # swithing to new user
 sudo - $username
 cd
