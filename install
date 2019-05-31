@@ -21,8 +21,13 @@ done
 # configuration sudo
 echo -e ">>> Configuration sudo\n"
 apt install -y sudo
-read -s -p "Your new primary username: " username
+read -s -p "Your primary username: " username
+read -s -p "Add new user? (y/n) " addNewUser
+if [ "${addNewUser}" == 'y' ];
+	adduser $username
+fi
 usermod -aG sudo $username
+usermod -aG plugdev $username
 # swithing to new user
 sudo - $username
 cd
@@ -39,7 +44,7 @@ loadkeys us
 # configuration ethernet
 echo -e ">>> Configuration Ethernet\n"
 read -s -p "Connect to WiFi? (y/n) " connectToWifi
-if connectToWifi;
+if [ "${connectToWifi}" == 'y'];
 	read -s -p "SSID: " wifiSsid
 	read -s -p "Password: " wifiPassword
 
@@ -50,15 +55,15 @@ fi
 # installing packages
 echo -e ">>> Installing packages\n"
 sudo apt install -y xorg openbox tint2 pcmanfm xterm chromium lxappearance git gsimplecal audacious \
-	feh geany gparted htop network-manager network-manager-gnome pavucontrol pnmixer obconf \
+	feh geany htop network-manager network-manager-gnome pavucontrol pnmixer obconf \
 	pulseaudio resolvconf screenfetch scrot vim vlc xfce4-power-manager zip lxrandr lxinput obmenu
 
 read -s -p "Do you have Realtek Ethernet chipset? (y/n) " isRealtekChipset
-if isRealtekChipset;
+if [ "${isRealtekChipset}" == 'y' ];
 	sudo apt install -y firmware-realtek
 fi
 read -s -p "Do you have Atheros Ethernet chipset? (y/n) " isAtherosChipset
-if isRealtekChipset;
+if [ "${isRealtekChipset}" == 'y' ];
 	sudo apt install -y firmware-atheros
 fi
 	
