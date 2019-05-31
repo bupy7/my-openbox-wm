@@ -1,5 +1,5 @@
 XTerm*rightScrollBar: true
-XTerm*ScrollBar: true
+XTerm*scrollBar: true
 XTerm*Background: black
 XTerm*Foreground: white
 XTerm*selectToClipboard: true
