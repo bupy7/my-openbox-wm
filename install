@@ -76,6 +76,7 @@ cp -R ./.config ~/
 cp ./.xinitrc ~/
 cp ./.vimrc ~/
 cat ./.bash_profile | sed "s/@username@/${username}/" > ~/.bash_profile
+cp ./.Xdefaults ~/
 
 # copying wallpapers
 echo -e ">>> Copying wallpapers\n"

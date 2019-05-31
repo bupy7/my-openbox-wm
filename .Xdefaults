@@ -1,0 +1,5 @@
+XTerm*rightScrollBar: true
+XTerm*ScrollBar: true
+XTerm*Background: black
+XTerm*Foreground: white
+XTerm*selectToClipboard: true
