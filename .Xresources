@@ -1,5 +1,6 @@
-XTerm*rightScrollBar: true
-XTerm*scrollBar: true
-XTerm*Background: black
-XTerm*Foreground: white
-XTerm*selectToClipboard: true
+xterm*rightScrollBar: true
+xterm*scrollBar: true
+xterm*background: black
+xterm*foreground: white
+xterm*selectToClipboard: true
+xterm*scrollTtyOutput: false
