@@ -3,3 +3,5 @@ xterm*background: black
 xterm*foreground: white
 xterm*selectToClipboard: true
 xterm*scrollTtyOutput: false
+xterm*font: -*-terminus-medium-r-normal-*-12-*-*-*-*-*-iso10646-1
+
