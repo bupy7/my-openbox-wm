@@ -6,14 +6,14 @@
 				<execute>audacious</execute>
 			</action>
 		</item>
-		<item label="Geany">
-			<action name="Execute">
-				<execute>geany</execute>
-			</action>
-		</item>
 		<item label="File Manager">
 			<action name="Execute">
 				<execute>pcmanfm</execute>
+			</action>
+		</item>
+		<item label="Leafpad">
+			<action name="Execute">
+				<execute>leafpad</execute>
 			</action>
 		</item>
 		<item label="Telegram">

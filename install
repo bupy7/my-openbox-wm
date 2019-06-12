@@ -54,7 +54,7 @@ fi
 # installing packages
 echo -e ">>> Installing packages\n"
 sudo apt install -y xorg openbox tint2 pcmanfm xterm chromium lxappearance git gsimplecal audacious \
-	feh geany htop network-manager network-manager-gnome pavucontrol pnmixer obconf \
+	feh leafpad htop network-manager network-manager-gnome pavucontrol pnmixer obconf \
 	pulseaudio resolvconf screenfetch scrot vim vlc xfce4-power-manager zip lxrandr lxinput obmenu \
 	xfonts-terminus
 
