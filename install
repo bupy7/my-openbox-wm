@@ -56,7 +56,7 @@ echo -e ">>> Installing packages\n"
 sudo apt install -y xorg openbox tint2 pcmanfm xterm chromium lxappearance git gsimplecal audacious \
 	feh leafpad htop network-manager network-manager-gnome pavucontrol pnmixer obconf \
 	pulseaudio resolvconf screenfetch scrot vim vlc xfce4-power-manager zip lxrandr lxinput obmenu \
-	xfonts-terminus
+	xfonts-terminus simple-scan system-config-printer
 
 read -s -p "Do you have Realtek Ethernet chipset? (y/n) " isRealtekChipset
 if [ "${isRealtekChipset}" == 'y' ];
@@ -76,12 +76,13 @@ echo -e ">>> Installing themes\n"
 cp -R ./.themes ~/
 
 # copying configurations
-echo -e ">>> Copying local configurations\n"
+echo -e ">>> Copying local configurations and files\n"
 cp -R ./.config ~/
 cp ./.xinitrc ~/
 cp ./.vimrc ~/
 cat ./.bash_profile | sed "s/@username@/${username}/" > ~/.bash_profile
 cp ./.Xresources ~/
+cp -R ./local ~/
 
 # copying wallpapers
 echo -e ">>> Copying wallpapers\n"

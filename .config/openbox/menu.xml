@@ -16,6 +16,11 @@
 				<execute>leafpad</execute>
 			</action>
 		</item>
+		<item label="Simple Scan">
+			<action name="Execute">
+				<execute>simple-scan</execute>
+			</action>
+		</item>
 		<item label="Telegram">
 			<action name="Execute">
 				<execute>telegram</execute>
@@ -63,6 +68,11 @@
 			<item label="ObMenu">
 				<action name="Execute">
 					<execute>obmenu</execute>
+				</action>
+			</item>
+			<item label="Printers">
+				<action name="Execute">
+					<execute>system-config-printer</execute>
 				</action>
 			</item>
 			<item label="Tint2Conf">

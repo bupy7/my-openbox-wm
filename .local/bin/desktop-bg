@@ -1,0 +1,5 @@
+#/usr/bin/env bash
+
+IMG=~/Wallpapers/meg_myers_1.jpg
+
+feh --bg-fill $IMG
