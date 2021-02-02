@@ -76,13 +76,14 @@ echo -e ">>> Installing themes\n"
 cp -R ./.themes ~/
 
 # copying configurations
-echo -e ">>> Copying local configurations and files\n"
+echo -e ">>> Copying configurations and files\n"
 cp -R ./.config ~/
 cp ./.xinitrc ~/
 cp ./.vimrc ~/
 cat ./.bash_profile | sed "s/@username@/${username}/" > ~/.bash_profile
 cp ./.Xresources ~/
 cp -R ./local ~/
+sudo cat ./sudoers.d/nopasswd | sed "s/@username@/${username}/" > /etc/sudoers.d/nopasswd && sudo chmod 0440 /etc/sudoers.d/nopasswd
 
 # copying wallpapers
 echo -e ">>> Copying wallpapers\n"
